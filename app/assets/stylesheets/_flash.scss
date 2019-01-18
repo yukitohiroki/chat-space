@@ -1,10 +1,10 @@
 .flash {
-  background-color: $bluefontColor;
-  height: 30px;
-  width: 100%;
-  position: fixed;
+     background-color: $bluefontColor;
+     width: 100%;
+     position: fixed;
   &__message {
-    line-height: 30px;
+    height: 30px;
+    width: 100%;
     text-align: center;
     color: $whitefontColor;
   }

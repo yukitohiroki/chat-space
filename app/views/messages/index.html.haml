@@ -1,3 +1,33 @@
-.flash
-  .flash__message
-    アカウント登録が完了しました。
+.wrapper
+  .flash
+    .flash__message
+  .sidebar
+    .header
+      %h3.header__name kawaguchi takahisa
+      %ul.header__list
+        %li.list
+          = link_to root_path do
+            %i.fa.fa-edit
+        %li.list
+          = link_to root_path do
+            %i.fa.fa-cog
+    = render partial: 'messages/groups'
+
+  .right-contents
+    .header
+      .left-header
+        .left-header__title
+          グループ名1
+          %ul.left-header__members
+            %li.member Members:
+            %li.member 川口,
+            %li.member 貴久,
+            %li.member kawaguchi,
+            %li.member takahisa
+      .right-header
+        = link_to root_path,class:"right-header__button" do
+          Edit
+    .footer
+      = render partial: 'messages/bottom_content'
+    .messages
+      = render partial: 'messages/messages'
