@@ -1,5 +1,4 @@
 .sidebar {
-  padding-top: 30px;
   min-height: 100vh;
   width: 300px;
   float: left;
@@ -10,7 +9,7 @@
     background-color: #253141;
     padding: 0 20px;
     &__name {
-      color: $whitefontColor;
+      color: $white;
       font-size: 16px;
       padding-top: 35px;
       float: left;
@@ -21,9 +20,9 @@
       .list {
         padding-top: 35px;
         display: inline-block;
-        color: $whitefontColor;
+        color: $white;
         .fa {
-          color: $whitefontColor;
+          color: $white;
         }
       }
     }
@@ -34,12 +33,12 @@
       width: 300px;
       text-decoration: none;
         .group__name {
-          color: $whitefontColor;
+          color: $white;
           font-size: 15px;
           padding:20px 20px 0;
         }
         .group__message {
-          color: $whitefontColor;
+          color: $white;
           font-size: 11px;
           padding:5px 20px 20px;
         }
