@@ -1,5 +1,4 @@
 .right-contents {
-  padding-top: 30px;
   height: 100%;
   width: calc(100% - 300px);
   float: left;
@@ -32,11 +31,11 @@
       margin-top: 28px;
       height:40px;
       line-height: 40px;
-      border: 1px solid $bluefontColor;
+      border: 1px solid $light_blue;
       box-sizing: border-box;
       .right-header__button {
         padding: 20px;
-        color: $bluefontColor;
+        color: $light_blue;
         text-decoration: none;
       }
     }
@@ -116,8 +115,8 @@
           }
         }
       .form__submit {
-        background-color: $bluefontColor;
-        color: $whitefontColor;
+        background-color: $light_blue;
+        color: $white;
         height: 50px;
         line-height: 50px;
         font-size: 16px;

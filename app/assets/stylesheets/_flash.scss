@@ -1,11 +1,13 @@
-.flash {
-     background-color: $bluefontColor;
-     width: 100%;
-     position: fixed;
-  &__message {
-    height: 30px;
-    width: 100%;
+.notification {
+  .notice {
+    background-color: $light_blue;
+    color: $white;
     text-align: center;
-    color: $whitefontColor;
+  }
+
+  .alert {
+    background-color: $alert_orange;
+    color: $white;
+    text-align: center;
   }
 }
