@@ -1,5 +1,9 @@
 $(function(){
   function buildHTML(message){
+    var insertImage = '';
+    if(message.image.url){
+      insertImage = `<img src = "${message.image}">`;
+    }
     var html = `<div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user">
@@ -13,10 +17,10 @@ $(function(){
                     <div class="lower-message__content">
                       ${ message.content }
                     </div>
-                    <img src = '${ message.image }', class='lower-message__image'>
+                    ${insertImage}
                   </div>
-                </div>`
-    return html;
+                </div>`;
+    return html
   }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
