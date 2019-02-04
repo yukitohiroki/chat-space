@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   var search_list = $("#user-search-result");
   function appendUser(user) {
     var html =
@@ -31,7 +31,7 @@ $(function() {
     $("#chat-group-users").append(html);
   }
 
-      $("#user-search-field").on("keyup", function() {
+      $("#user-search-field").on("keyup",function() {
         var input = $("#user-search-field").val();
         if (input == ""){
           $("#user-search-result").empty();
