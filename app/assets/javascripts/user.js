@@ -44,7 +44,6 @@ $(function() {
             dataType: 'json'
           })
           .done(function(data) {
-            console.log(data);
             $("#user-search-result").empty();
             if (data.length !== 0) {
               data.forEach(function(user){
@@ -69,6 +68,5 @@ $(function() {
     });
     $("#chat-group-users").on("click", ".js-remove-btn", function(e){
       $(this).parent().remove();
-      console.log("ああああ")
     });
 });
