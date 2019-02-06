@@ -44,7 +44,6 @@ $(document).on('turbolinks:load', function() {
             dataType: 'json'
           })
           .done(function(data) {
-            console.log(data);
             $("#user-search-result").empty();
             if (data.length !== 0) {
               data.forEach(function(user){
