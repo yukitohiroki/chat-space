@@ -1,9 +1,6 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   function buildHTML(message){
-    var insertImage = '';
-    if(message.image.url){
-      insertImage = `<img src = "${message.image}">`;
-    }
+    var img = message.image ? `<img src=${ message.image }>` : "";
     var html = `<div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user">
@@ -17,15 +14,20 @@ $(function(){
                     <div class="lower-message__content">
                       ${ message.content }
                     </div>
-                    ${insertImage}
+                    ${ img }
                   </div>
                 </div>`;
     return html
+  }
+
+  function scroll(){
+    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast')
   }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
+
     $.ajax({
       url: url,
       type: "POST",
@@ -36,16 +38,36 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.messages').append(html)
-      $('.form').val('')
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast' )
+      $('.messages').append(html);
       $('.form__submit').prop('disabled', false);
-      $(".lower-message__image").error(function(){
-        $(this).remove();
-      })
+      scroll();
+      $('#new_message')[0].reset();
     })
     .fail(function(){
-      alert('error');
+      alert('メッセージを入力してください');
+      $('.form__submit').prop('disabled', false);
     })
-  })
+  });
+    var autoupdate = setInterval(function() {
+      if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
+    $.ajax({
+      url: location.pathname,
+      type: "GET",
+      dataType: 'json'
+    })
+    .done(function(data) {
+      var insertHTML = '';
+      data.forEach(function(message) {
+        insertHTML += buildHTML(message);
+      });
+      $('.messages').html(insertHTML);
+      scroll()
+    })
+    .fail(function(data) {
+      alert('自動更新に失敗しました');
+    });
+  } else {
+    clearInterval(interval);
+    }
+  } , 5000 );
 });
