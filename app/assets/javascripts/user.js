@@ -69,6 +69,5 @@ $(document).on('turbolinks:load', function() {
     });
     $("#chat-group-users").on("click", ".js-remove-btn", function(e){
       $(this).parent().remove();
-      console.log("ああああ")
     });
 });
